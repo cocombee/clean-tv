@@ -185,6 +185,12 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.Holder> {
                 listed.add(pkg);
             }
         }
+        
+Set<String> seenSooka = new HashSet<>();
+found.removeIf(ri -> ri.activityInfo != null
+        && "com.astro.sott".equals(ri.activityInfo.packageName)
+        && !seenSooka.add(ri.activityInfo.packageName));
+  
         // The install path moves when an app is updated, so it stands in for the version: an update
         // that brought a new banner still gets a rebuild.
         List<String> parts = new ArrayList<>();
