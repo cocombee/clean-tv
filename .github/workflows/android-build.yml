@@ -22,7 +22,10 @@ jobs:
           java-version: '17'
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
+        with:
+          cmdline-tools-version: '12266719'
+          packages: ''
 
       - name: Install Android SDK packages
         run: |
@@ -34,7 +37,7 @@ jobs:
         working-directory: launcher
         run: |
           chmod +x gradlew
-          ./gradlew testReleaseUnitTest assembleRelease
+          ./gradlew --no-daemon testReleaseUnitTest assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
