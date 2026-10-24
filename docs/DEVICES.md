@@ -64,6 +64,7 @@ TV on one, add a line to its `debloat.txt` and it moves to section 1.
 | TCL QM6K Pro, 2025 (G08, MediaTek tcl9618) | Google TV 14 | [`tcl-qm6k-google-tv`](../examples/tcl-qm6k-google-tv/) |
 | TCL Smart TV Pro (G05, G05_4K_US, MediaTek MT5889) | Google TV 11 | [`tcl-g05-google-tv`](../examples/tcl-g05-google-tv/) |
 | Thomson 32HE5800 (TCL-built UnionTV, Realtek RT2841), Spain | Android TV 9 | [`thomson-32he5800`](../examples/thomson-32he5800/) |
+| TiVo Stream 4K, streaming stick | Android TV | none yet: an owner ran the original launcher after setting it up with one AI agent; a later Glass TV attempt with another agent was blocked, see [Troubleshooting](TROUBLESHOOTING.md#working-on-the-tv) |
 | Vu 4K (HVCL, lushan, MediaTek), India | Google TV 12 | [`vu-4k-lushan`](../examples/vu-4k-lushan/) |
 | XGIMI Horizon S Pro projector (XK03H, xgimigalileo, MediaTek) | Android TV 11 | [`xgimi-horizon-s-pro`](../examples/xgimi-horizon-s-pro/) |
 | Xiaomi Mi Box S (MIBOX4, oneday), streaming box | Android TV 9 | [`xiaomi-mi-box-s`](../examples/xiaomi-mi-box-s/) |
@@ -108,7 +109,7 @@ Android TV or Google TV 8 or newer, so nothing stands in the way, but no one has
 |---|---|---|
 | Samsung (Tizen) | No Android apps, and no app can replace its Home or Home button | A Google TV or Android TV box in an HDMI port |
 | LG (webOS) | Same | A box; or the webOS app you open yourself, a preview in [`webos/`](../webos/README.md) |
-| Hisense / Toshiba VIDAA, Roku, Vizio SmartCast, Panasonic My Home Screen, Apple TV | Same | A box |
+| Hisense / Toshiba VIDAA, Roku, Vizio SmartCast, Panasonic My Home Screen (the GX655 series among them), Philips Saphi (Philips' own system on its non-Android TVs), Apple TV | Same | A box |
 | Older unifi IPTV set-top boxes (before the Plus Box) | Not Android TV | A box |
 
 With a box, the TV becomes the screen and Glass TV is the whole experience. Turn on HDMI-CEC on the TV (Anynet+

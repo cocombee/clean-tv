@@ -22,6 +22,9 @@ Things that bit us or contributors, so they don't bite you. Commands use `tools/
   key next to the one platform-tools had registered. It now reuses `~/.android/adbkey` when that
   exists. Every attempt with an unaccepted key queues one more prompt on the TV, so dismiss them all
   (Back) before testing with key presses.
+- **PowerShell says "adb is not recognized"** although you are in the platform-tools folder: PowerShell
+  doesn't run a program from the current folder by its bare name. Type `.\adb connect <ip>:5555`, with the
+  TV's IP address from its network settings (four numbers, like 192.168.1.20), not the TV's device name.
 - **Git Bash rewrites paths** like `/data/local/tmp` into Windows paths. The scripts set
   `MSYS_NO_PATHCONV=1` for you. Set `JAVA_HOME` and `ANDROID_HOME` before building there.
 
@@ -104,6 +107,17 @@ fails on purpose and the rollback is printed instead of run.
   or a reinstall from scratch: clearing the launcher's data also drops the location permission
   Android 10 needs to read the SSID. `pm grant com.gathin.tvhome android.permission.ACCESS_FINE_LOCATION`
   (the install script does this).
+- **`pm disable-user` answers "Warning! This command is illegal!"**, and the installed launcher disappears a few
+  seconds later, seen on a TiVo Stream 4K (reported on Threads, October 2026): the firmware refuses to disable its
+  packages and its package service removes the new launcher. The same owner had run the original launcher on that
+  stick before, set up with a different AI agent, so it is not a hard block; what differed is not known yet. Stop
+  at the refusal: nothing is changed and the stick stays as it was. A report with the commands that worked is welcome.
+- **The TV shows its logo and restarts over and over**, the morning after an install that had worked, reported once
+  (October 2026, model not known yet). Unplug the TV for a minute. If it reaches Home even briefly, run
+  `tools/restore.sh <your debloat list>` (Windows: `tools\restore.ps1`) to enable everything again. The cause is not
+  found yet; please open an issue with the model and the `debloat.txt` used if it happens to you.
+- **The wallpaper is gone after the TV was switched off** and comes back after a force stop of Glass TV, reported
+  once (October 2026). Not reproduced yet; an issue with the model and theme helps.
 - **Home is "Select a Home app"** after `tools/restore.sh` followed by re-applying a list: disabling a
   package that also claims HOME (PatchWall on Xiaomi) makes Android drop the default. The install
   script now picks the known stock launcher among the candidates by itself; otherwise choose one on
